@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Tesla authorization callback</title>
+<h1>Finish locally</h1>
+<p>Copy the value below into the hidden prompt of <code>tesla-agent auth-finish</code> on your server. Do not paste it into chat. It is a temporary credential.</p>
+<textarea id="callback" rows="8" cols="80" readonly aria-label="Authorization callback URL"></textarea>
+<p>Close this page after finishing. This page does not exchange or store tokens and has no analytics.</p>
+<script>
+const callback = location.href;
+history.replaceState(null, '', location.pathname);
+document.getElementById('callback').value = callback;
+</script>
